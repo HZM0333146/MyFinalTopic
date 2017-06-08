@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_parts_learning"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.dick.myfinaltopic.PartsLearning">
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/next"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/icon_next" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/last"
+        android:layout_alignTop="@+id/next"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/icon_last" />
+
+
+    <TextView
+        android:text="TextView"
+        android:id="@+id/spell"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:layout_below="@+id/imageView"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_width="225dp"
+        android:layout_height="30dp" />
+
+    <ListView
+        android:layout_width="200dp"
+        android:id="@+id/listView2"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/spell"
+        android:layout_alignLeft="@+id/spell"
+        android:layout_alignStart="@+id/spell" />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_height="180dp"
+        android:layout_width="250dp"
+        android:layout_above="@+id/next"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        app:srcCompat="@android:drawable/ic_menu_gallery"
+        android:id="@+id/imageView"
+        android:layout_width="225dp"
+        android:layout_height="225dp"
+        android:layout_alignBottom="@+id/next"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/back"
+        android:background="@drawable/icon_goback"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:id="@+id/sound"
+        android:layout_height="50dp"
+        android:background="@drawable/icon_speaker"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

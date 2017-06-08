@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="card_bg">#EBEBEB</color>
+    <color name="brown">#895117</color>
+    <color name="brown_title">#6b473b</color>
+    <color name="brown_content">#f0ede6</color>
+    <color name="black">#000000</color>
+    <color name="essay_background">#80000000</color>
+    <color name="essay_background2">#B3000000</color>
+    <color name="card_outline">#D0D0CE</color>
+    <color name="orange">#FFAA33</color>
+    <color name="white">#FFFFFF</color>
+</resources>
