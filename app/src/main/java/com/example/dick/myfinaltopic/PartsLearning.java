@@ -19,12 +19,13 @@ import android.widget.VideoView;
 import java.util.Locale;
 
 public class PartsLearning extends AppCompatActivity implements TextToSpeech.OnInitListener{
+    ImageView partBack;
     String[] word =new String[] {"明","件","冰"};
     String[][] part =new String[][]{{"日","月"},{"イ","牛"},{"冫","水"}};
     String[] spell = {"míng","jiàn","bīng"};
     int[]  imgIds = new int[]{R.raw.easy_food_gif1,R.raw.easy_food_gif2,R.raw.easy_food_gif3};
     int p=0;
-    ImageView back,last,next,showGIF,sound;
+    ImageView last,next,showGIF,sound;
     MediaController mc;
     GifAnimationDrawable gif;
     private TextToSpeech tts;
@@ -44,7 +45,7 @@ public class PartsLearning extends AppCompatActivity implements TextToSpeech.OnI
         setTitle("Word");
         //畫面出始化給與各國文字
         findView();
-
+        partBack=(ImageView)findViewById(R.id.parts_learning_back);
         mList = (ListView) findViewById(R.id.listView2);
         tts = new TextToSpeech(this, this);
         mc = new MediaController(this);
@@ -117,7 +118,7 @@ public class PartsLearning extends AppCompatActivity implements TextToSpeech.OnI
                 tts.speak(word[w], TextToSpeech.QUEUE_FLUSH, null);     //發音
             }
         });
-        back.setOnClickListener(new View.OnClickListener() {
+        partBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PartsLearning.this,ChineseCharacterSelection.class);
@@ -153,7 +154,6 @@ public class PartsLearning extends AppCompatActivity implements TextToSpeech.OnI
         spel = (TextView) findViewById(R.id.spell);
         last = (ImageView) findViewById(R.id.last);
         next = (ImageView) findViewById(R.id.next);
-        back = (ImageView) findViewById(R.id.back);
         sound = (ImageView) findViewById(R.id.sound);
         videoView = (VideoView) findViewById(R.id.videoView);
     }

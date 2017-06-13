@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\Sinni\Desktop\MyFinalTopic\ecoGallery\src\main\assets"/><source path="C:\Users\Sinni\Desktop\MyFinalTopic\ecoGallery\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="C:\Users\Sinni\Desktop\MyFinalTopic\ecoGallery\src\release\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="D:\MobileAppDesign\MyFinalTopic\ecoGallery\src\main\assets"/><source path="D:\MobileAppDesign\MyFinalTopic\ecoGallery\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="D:\MobileAppDesign\MyFinalTopic\ecoGallery\src\release\assets"/></dataSet></merger>

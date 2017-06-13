@@ -43,7 +43,7 @@ public class StructuralLearning extends AppCompatActivity {
         paint = new Paint();
         paint.setStrokeWidth(5);
         paint.setColor(Color.RED);
-        back=(ImageView)findViewById(R.id.chinesecharacterselectionback);
+        back=(ImageView)findViewById(R.id.structurallearningback);
         back.bringToFront();//控制按鍵到最上層
         back.setOnClickListener(onback);
         textView = (TextView) findViewById(R.id.textView);
@@ -195,7 +195,6 @@ public class StructuralLearning extends AppCompatActivity {
                     .setMessage(ans)
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-
                             if (baseBitmap != null) {  //清空
                                 baseBitmap = Bitmap.createBitmap(iv_canvas.getWidth(), iv_canvas.getHeight(), Bitmap.Config.ARGB_8888);
                                 baseBitmap.eraseColor(Color.TRANSPARENT);

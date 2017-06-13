@@ -114,7 +114,7 @@ public class HandTonePractice extends AppCompatActivity implements TextToSpeech.
         word.setText(speak[0]);
         tts = new TextToSpeech(this, this);
         tts.speak(speak[0], TextToSpeech.QUEUE_FLUSH, null);     //發音
-        back = (ImageView) findViewById(R.id.structurallearning);
+        back = (ImageView) findViewById(R.id.handTonePracticeBack);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
