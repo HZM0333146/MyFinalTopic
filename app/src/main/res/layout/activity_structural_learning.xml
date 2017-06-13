@@ -73,7 +73,7 @@
         android:layout_marginStart="11dp" />
 
     <ImageView
-        app:srcCompat="@drawable/notebook_icon"
+        app:srcCompat="@drawable/notepaper"
         android:id="@+id/imageView10"
         android:layout_width="match_parent"
         android:layout_height="200dp"
