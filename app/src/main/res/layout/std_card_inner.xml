@@ -7,26 +7,16 @@
     android:layout_height="wrap_content"
     >
 
-    <TextView
-        android:id="@+id/title"
-        style="@android:style/TextAppearance.Large.Inverse"
-        android:textColor="@android:color/primary_text_light"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center_horizontal"
-        android:fontFamily="sans-serif-condensed"
+    <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/card_bg"
-        tools:text="Title"
-        android:padding="10dp"/>
+        android:layout_height="60dp"/>
 
     <View
         android:id="@+id/divider_title"
         android:layout_width="fill_parent"
         android:layout_height="2dp"
-        android:layout_below="@id/title"
-        android:background="@color/card_outline" />
+        android:layout_below="@+id/imageView3" />
 
     <ImageView
         android:id="@+id/image"
@@ -44,15 +34,13 @@
         android:layout_width="fill_parent"
         android:layout_height="2dp"
         android:layout_below="@id/image"
-        android:background="@color/card_outline" />
+        android:background="@color/card_outline"/>
 
     <TextView
         android:id="@+id/description"
         style="@android:style/TextAppearance.Inverse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/divider_bottom"
-        android:layout_alignParentLeft="true"
         android:gravity="center_vertical"
         android:fontFamily="sans-serif-condensed"
         android:ellipsize="end"
@@ -61,7 +49,10 @@
         android:textColor="@android:color/secondary_text_light"
         tools:text="This is the description, it is a long description, as you can see"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_below="@+id/image"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/descriptionPE"
@@ -78,7 +69,8 @@
         android:textColor="@android:color/secondary_text_light"
         tools:text="This is the description, it is a long description, as you can see"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        />
 
     <View
         android:id="@+id/divider_bottom2"
@@ -92,8 +84,6 @@
         style="@android:style/TextAppearance.Inverse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/divider_bottom2"
-        android:layout_alignParentLeft="true"
         android:gravity="center_vertical"
         android:fontFamily="sans-serif-condensed"
         android:ellipsize="end"
@@ -102,49 +92,22 @@
         android:textColor="@android:color/secondary_text_light"
         tools:text="This is the description, it is a long description, as you can see"
         android:textAlignment="center"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/description2PE"
-        style="@android:style/TextAppearance.Inverse"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/description2"
+        android:textSize="30sp"
+        android:layout_below="@+id/divider_bottom2"
         android:layout_alignParentLeft="true"
-        android:gravity="center_vertical"
-        android:fontFamily="sans-serif-condensed"
-        android:ellipsize="end"
-        android:padding="10dp"
-        android:lines="1"
-        android:textColor="@android:color/secondary_text_light"
-        tools:text="This is the description, it is a long description, as you can see"
-        android:textAlignment="center" />
+        android:layout_alignParentStart="true" />
 
     <View
         android:id="@+id/divider_bottom3"
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_below="@id/description2PE"
-        android:background="@color/card_outline" />
-
-    <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_below="@+id/divider_bottom3"
-        android:layout_alignLeft="@+id/image"
-        android:layout_alignStart="@+id/image">
+        android:layout_height="2dp"
+        android:layout_below="@+id/description2"
+        android:background="@color/card_outline"/>
 
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.05"
-            android:background="@color/card_outline"
-            android:id="@+id/middle_driver"
-            android:textAlignment="center" />
-
-    </LinearLayout>
-
+    <ImageView
+        android:id="@+id/imageV"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/description2"/>
 
 </RelativeLayout>

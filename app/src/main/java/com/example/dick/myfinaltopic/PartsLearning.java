@@ -16,7 +16,6 @@ import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-import java.io.IOException;
 import java.util.Locale;
 
 public class PartsLearning extends AppCompatActivity implements TextToSpeech.OnInitListener{
@@ -123,6 +122,7 @@ public class PartsLearning extends AppCompatActivity implements TextToSpeech.OnI
             public void onClick(View view) {
                 Intent intent = new Intent(PartsLearning.this,ChineseCharacterSelection.class);
                 startActivity(intent);
+                finish();
             }
         });
         mList.setAdapter(mAdapter);
@@ -147,7 +147,6 @@ public class PartsLearning extends AppCompatActivity implements TextToSpeech.OnI
     public void setvalue(int i) {
         tts.speak(word[i], TextToSpeech.QUEUE_FLUSH, null);     //發音
         spel.setText(spell[i]);
-        picture(i);
     }
     public void findView() {
         showGIF = (android.widget.ImageView) findViewById(R.id.imageView);
@@ -173,28 +172,6 @@ public class PartsLearning extends AppCompatActivity implements TextToSpeech.OnI
         return array;
     }
 
-    public void picture(int i){
-        showGIF.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {(
-                    // 點擊一下, 再開始播放一次
-                    // 以下寫法, 等同 gif2.setVisible(true, true);
-                    showGIF.getDrawable()).setVisible(true, true);
-            }
-        });
-
-        try{ // 取得 Gif 動畫檔
-            gif = new GifAnimationDrawable( getResources().openRawResource(imgIds[i]) );
-            // Gif Drawable 設定給 ImageView
-            showGIF.setImageDrawable(gif);
-            // 只播放一次
-            gif.setOneShot(true);
-        }catch( IOException ioe ){
-
-        }
-    }
-
     @Override
     public void onInit(int status) {
         // TODO Auto-generated method stub
@@ -213,6 +190,7 @@ public class PartsLearning extends AppCompatActivity implements TextToSpeech.OnI
     }
     @Override
     public void onDestroy() {
+        super.onDestroy();
         // shutdown tts
         if (tts != null) {
             tts.stop();

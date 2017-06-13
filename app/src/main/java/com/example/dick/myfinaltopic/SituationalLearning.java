@@ -12,12 +12,10 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.OnStreetViewPanoramaReadyCallback;
 import com.google.android.gms.maps.StreetViewPanorama;
@@ -26,9 +24,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
 import com.google.android.gms.maps.model.StreetViewPanoramaLocation;
 
-import andtinder.model.CardModel;
-import andtinder.view.CardContainer;
-import andtinder.view.SimpleCardStackAdapter;
 import us.feras.ecogallery.EcoGallery;
 import us.feras.ecogallery.EcoGalleryAdapterView;
 
@@ -40,21 +35,21 @@ public class SituationalLearning extends AppCompatActivity implements StreetView
     EcoGallery ecoGallery;
     SituationGalleryAdapter adapter;
     Bundle inBundle;
-    TextView textView;
+    TextView textView,textView2;
     ListView listView;;
     //教材圖示
     ImageView note=null;
     RelativeLayout frame,linearLayout_main;
     int pt;
     Drawable drawable;
-    boolean aBoolean=false;
     LayoutInflater inflater;
     View viewNpc;
     CTextView cTextView1;
     RelativeLayout.LayoutParams rejj;
-    int count=0,pos;
-    Button button;
+    int count=0,pos,con=0,sel=0;
+    int npcOne=0,npcTwo=0,npcThree=0,npcFour=0;
     ArrayAdapter<String> listAdapter;
+    private ImageView back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,20 +62,23 @@ public class SituationalLearning extends AppCompatActivity implements StreetView
             inBundle=getIntent().getExtras();
             pt=inBundle.getInt("position");
         }
-        button=(Button)findViewById(R.id.button2);
         frame=(RelativeLayout)findViewById(R.id.abc);
         linearLayout_main=(RelativeLayout)findViewById(R.id.activity_situation_word_card);
         textView=(TextView)findViewById(R.id.textView2);
+        textView2=(TextView)findViewById(R.id.textView3);
 
-        textView.setText(TextBook.courseLocation[pt]);
-        button.setOnClickListener(new View.OnClickListener() {
+        back=(ImageView)findViewById(R.id.situationallearningback);
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent();
-                intent.setClass(SituationalLearning.this,PracticeSelection.class);
-                startActivity(intent);
+                Intent i=new Intent();
+                i.setClass(SituationalLearning.this,ContextTextAndEventSelection.class);
+                startActivity(i);
+                finish();
             }
         });
+        textView.setText(TextBook.courseLocation[pt]);
+        textView2.setText("卡片");
 
         //實力化NPC頁面
         inflater = (LayoutInflater) SituationalLearning.this.getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -121,6 +119,8 @@ public class SituationalLearning extends AppCompatActivity implements StreetView
     @Override
     public void onStreetViewPanoramaChange(StreetViewPanoramaLocation streetViewPanoramaLocation) {
         LatLng ll = streetViewPanoramaLocation.position;
+        Log.v("latitude",String.valueOf(ll.latitude));
+        Log.v("longitude",String.valueOf(ll.longitude));
 
     }
 
@@ -135,7 +135,10 @@ public class SituationalLearning extends AppCompatActivity implements StreetView
         public void onItemSelected(EcoGalleryAdapterView<?> parent, View view, int position, long id) {
             changePic(position);
             showNPC(TextBook.lesson_Attractions[pt][position].latitude,TextBook.lesson_Attractions[pt][position].longitude,position);
-            pos=position;
+
+            if(position>npcOne){
+                npcOne=position;count=0;npcThree=0;npcFour=0;
+            }
         }
 
         @Override
@@ -176,11 +179,10 @@ public class SituationalLearning extends AppCompatActivity implements StreetView
             viewNpc=inflater.inflate(R.layout.npcone, null);
             cTextView1=(CTextView) viewNpc.findViewById(R.id.cTextView);
             listView=(ListView)viewNpc.findViewById(R.id.list);
-            listAdapter=new ArrayAdapter<String>(this,R.layout.listview_item,TextBook.list);
             rejj.setMargins(0,400,0,0);
             viewNpc.setLayoutParams(rejj);
             linearLayout_main.addView(viewNpc);
-            viewNpc.setOnClickListener(npcMess);
+            cTextView1.setOnClickListener(npcMess);
         }else{
             linearLayout_main.removeView(viewNpc);
         }
@@ -198,52 +200,48 @@ public class SituationalLearning extends AppCompatActivity implements StreetView
     View.OnClickListener npcMess=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Log.v("ONE",String.valueOf(npcOne));
+            Log.v("count",String.valueOf(count));
+            Log.v("npcThree",String.valueOf(npcThree));
+            Log.v("npcFour",String.valueOf(npcFour));
 
-            if (count==0){
-                cTextView1.setText(TextBook.book[pos], AnimationUtils.loadAnimation(SituationalLearning.this, R.anim.myanim),50);
+            if (con==0){
+                cTextView1.setText(TextBook.dialogue[npcOne][count][npcThree][npcFour], AnimationUtils.loadAnimation(SituationalLearning.this, R.anim.myanim),50);
                 cTextView1.removeAllViews();
-                count++;
-            }else if(count==1){
+                count=count+1;
+                con++;
+            }else if(con==1){
+                listAdapter=new ArrayAdapter<String>(SituationalLearning.this,R.layout.listview_item,TextBook.dialogue[npcOne][count][sel]);
                 listView.setAdapter(listAdapter);
                 listView.setOnItemClickListener(onItemClickListener);
+                count=count+1;
+                con=0;
             }
         }
     };
     AdapterView.OnItemClickListener onItemClickListener=new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Toast.makeText(getApplicationContext(), "你選擇的是" + TextBook.list[position], Toast.LENGTH_SHORT).show();
-            linearLayout_main.removeView(viewNpc);
-            showNoteCard(position);
+            Log.e("hhhhhhhhh",String.valueOf(count));
+            if(count>=TextBook.dialogue[npcOne].length){
+                linearLayout_main.removeView(viewNpc);
+            }
+            if(count==2){
+                npcThree=position;
+            }
+            else{
+                npcFour=position;
+            }
+            Log.e("AAA",String.valueOf(npcThree));
+           // Toast.makeText(getApplicationContext(), "你選擇的是" + TextBook.dialogue[0][2][1][0], Toast.LENGTH_SHORT).show();
+
+            cTextView1.setText(TextBook.dialogue[npcOne][count][npcThree][npcFour], AnimationUtils.loadAnimation(SituationalLearning.this, R.anim.myanim),50);
+            cTextView1.removeAllViews();
+            count=count+1;
+            listAdapter=new ArrayAdapter<String>(SituationalLearning.this,R.layout.listview_item,TextBook.dialogue[npcOne][count][npcThree]);
+            listView.setAdapter(listAdapter);
+            listView.setOnItemClickListener(onItemClickListener);
+            count=count+1;
         }
     };
-
-    void showNoteCard(int pt){
-
-        CardContainer mCardContainer=(CardContainer)findViewById(R.id.laa);
-
-        final Resources r = getResources();
-
-        SimpleCardStackAdapter adapter = new SimpleCardStackAdapter(this);
-
-        for (int i = 0; i < 2; i++) {
-            String uri = TextBook.Cards[i][14];
-            int imageResource = getResources().getIdentifier(uri, "drawable", getPackageName());
-            adapter.add(new CardModel(
-                    TextBook.Cards[i][3],
-                    TextBook.Cards[i][4],
-                    TextBook.Cards[i][5],
-                    TextBook.Cards[i][6],
-                    TextBook.Cards[i][7],
-                    TextBook.Cards[i][8],
-                    TextBook.Cards[i][9],
-                    TextBook.Cards[i][10],
-                    TextBook.Cards[i][11],
-                    TextBook.Cards[i][12],
-                    TextBook.Cards[i][13],
-                    r.getDrawable(imageResource)));
-        }
-        mCardContainer.setAdapter(adapter);
-    }
-
-    }
+}

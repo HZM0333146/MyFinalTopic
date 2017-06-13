@@ -1,19 +1,21 @@
 package com.example.dick.myfinaltopic;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
 
+//漢字選擇題
 public class MeaningChoice extends AppCompatActivity implements View.OnClickListener{
-    Button[] button = new Button[4];
-    TextView Question,a2a,time;
+    TextView[] button = new TextView[4];
+    TextView Question;
     int rand, count=0, correct=0, wrong=0,cou=30;
     String [] vocmean=new String[]{null};
     String [] vocabulary=new String[]{null};
@@ -21,10 +23,21 @@ public class MeaningChoice extends AppCompatActivity implements View.OnClickList
     String Situation=null, answer=null;
     Handler handler=new Handler();
     Random run=new Random();
+    private ImageView back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meaning_choice);
+        back=(ImageView)findViewById(R.id.meaning_choice_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent();
+                i.setClass(MeaningChoice.this,PracticeSelection.class);
+                startActivity(i);
+                finish();
+            }
+        });
         findView();
         setSituation();
         setQuestion();
@@ -36,10 +49,10 @@ public class MeaningChoice extends AppCompatActivity implements View.OnClickList
     }
     void findView(){
         Question = (TextView) findViewById(R.id.Question);
-        button[0] = (Button)findViewById(R.id.button3);
-        button[1] = (Button)findViewById(R.id.button4);
-        button[2] = (Button)findViewById(R.id.button5);
-        button[3] = (Button)findViewById(R.id.button6);
+        button[0] = (TextView)findViewById(R.id.button3);
+        button[1] = (TextView)findViewById(R.id.button4);
+        button[2] = (TextView)findViewById(R.id.button5);
+        button[3] = (TextView)findViewById(R.id.button6);
     }
     void setSituation(){
         Resources res = getResources();
@@ -57,7 +70,6 @@ public class MeaningChoice extends AppCompatActivity implements View.OnClickList
         buttonAnswer[1] = vocmean[run.nextInt(vocmean.length)];
         buttonAnswer[2] = vocmean[run.nextInt(vocmean.length)];
         buttonAnswer[3] = vocmean[run.nextInt(vocmean.length)];
-        a2a.setText(answer);
         RandomArray(buttonAnswer);
         for(int i=0;i<4;i++){
             button[i].setText(buttonAnswer[i]);

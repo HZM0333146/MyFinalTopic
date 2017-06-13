@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+//情境選擇頁面
 public class ContextSelection extends AppCompatActivity {
     SimpleAdapter simpleAdapter;
     private LayoutInflater mInflater;
@@ -22,12 +23,23 @@ public class ContextSelection extends AppCompatActivity {
     ListView list;
     int[] image=TextBook.themeImage;
     String[] point=TextBook.courseLocation;
-
+    private ImageView back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_context_selection);
         list=(ListView)findViewById(R.id.lV);
+        back=(ImageView)findViewById(R.id.contextselectionback);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent();
+                i.setClass(ContextSelection.this,MainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
         for (int i=0;i<image.length;i++){
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("P_Image",image[i]);
@@ -60,6 +72,7 @@ public class ContextSelection extends AppCompatActivity {
                 bundle.putInt("position",position);
                 intent.putExtras(bundle);
                 startActivity(intent);
+                finish();
             }
         });
     }

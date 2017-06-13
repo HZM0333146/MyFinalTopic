@@ -28,8 +28,8 @@ public class SituationGalleryAdapter extends BaseAdapter {
             scene[i] = new ImageView(mContext);
             scene[i].setImageResource(textBook.street_pic[s][i]);
         }
-        paramSelected = new EcoGallery.LayoutParams(w1/2, h1/3);
-        paramUnSelected = new EcoGallery.LayoutParams(w1/2,h1/3);
+        paramSelected = new EcoGallery.LayoutParams(w1/2, h1/4);
+        paramUnSelected = new EcoGallery.LayoutParams(w1/2,h1/4);
     }
 
     @Override

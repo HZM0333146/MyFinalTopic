@@ -13,8 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import java.io.IOException;
-
 public class GroupWordPractice extends AppCompatActivity {
     //左右字判斷
     int[] animationword =new int[]{R.raw.animationword101,R.raw.animationword104,R.raw.animationword107,R.raw.animationword1010,R.raw.animationword1013,R.raw.animationword1016,R.raw.animationword1019,R.raw.animationword1022};
@@ -31,6 +29,7 @@ public class GroupWordPractice extends AppCompatActivity {
     int[] imgID=new int[]{R.id.part1,R.id.part2};
     ImageView[] img = new ImageView[imgID.length];
     Button re;
+    private ImageView back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,29 +41,22 @@ public class GroupWordPractice extends AppCompatActivity {
     for (int i=0;i<img.length;i++){
         img[i] = (ImageView) findViewById(imgID[i]);
     }
-        //動畫
-        try{
-            // 取得 Gif 動畫檔
-            gif = new GifAnimationDrawable(getResources().openRawResource(animationword[count1]) );
-            // Gif Drawable 設定給 ImageView
-            traditional.setImageDrawable(gif);
-            // 連續播放
-            gif.setOneShot(true);
-            // 開始播放
-            gif.setVisible(true, true);
-        }catch (IOException ioe){
 
-        }
-          handler.postDelayed(new Runnable(){
-            public void run() {
-
+        back=(ImageView)findViewById(R.id.group_word_practice_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent();
+                i.setClass(GroupWordPractice.this,PracticeSelection.class);
+                startActivity(i);
+                finish();
+            }
+        });
                 setanimationword1Img();
                 setImge();
                 for (int i = 0; i<img.length; i++) {
                     img[i].setOnTouchListener(imgListener);//觸控時監聽.
                 }
-            }
-        }, 1000);   //5秒
 
     }
     @Override
@@ -158,7 +150,7 @@ public class GroupWordPractice extends AppCompatActivity {
     private void setStart() {
         AlertDialog.Builder builder = new AlertDialog.Builder(GroupWordPractice.this);
 
-        builder.setMessage("正確")
+        builder.setMessage("Correct")
                 .setCancelable(false)
                 .setPositiveButton("next", new DialogInterface.OnClickListener() {
                     @Override

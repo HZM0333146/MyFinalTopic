@@ -1,21 +1,35 @@
 package com.example.dick.myfinaltopic;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class PracticeSelection extends AppCompatActivity {
-    Button group,mean,tone;
-
+    TextView group,mean,tone;
+    private ImageView back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice_selection);
-        group=(Button)findViewById(R.id.group);
-        mean=(Button)findViewById(R.id.mean);
-        tone=(Button)findViewById(R.id.tone);
+        group=(TextView)findViewById(R.id.group);
+        mean=(TextView)findViewById(R.id.mean);
+        tone=(TextView)findViewById(R.id.tone);
+        back=(ImageView)findViewById(R.id.practiceselectionback);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent();
+                i.setClass(PracticeSelection.this,SituationWordCard.class);
+                startActivity(i);
+                finish();
+            }
+        });
+        group.setText("組字練習");
+        mean.setText("詞義練習");
+        tone.setText("音調練習");
 
         group.setOnClickListener(groupButton);
         mean.setOnClickListener(meanButton);
@@ -27,7 +41,7 @@ public class PracticeSelection extends AppCompatActivity {
             Intent intent=new Intent();
             intent.setClass(PracticeSelection.this,GroupWordPractice.class);
             startActivity(intent);
-
+            finish();
         }
     };
     View.OnClickListener meanButton=new View.OnClickListener() {
@@ -36,6 +50,8 @@ public class PracticeSelection extends AppCompatActivity {
             Intent intent=new Intent();
             intent.setClass(PracticeSelection.this,MeaningChoice.class);
             startActivity(intent);
+            finish();
+
         }
     };
 
@@ -45,6 +61,7 @@ public class PracticeSelection extends AppCompatActivity {
             Intent intent=new Intent();
             intent.setClass(PracticeSelection.this,ToneExercises.class);
             startActivity(intent);
+            finish();
         }
     };
 

@@ -13,7 +13,7 @@ import android.widget.TextView;
 /**
  * Created by Dick on 2017/6/4.
  */
-
+//NPC對畫動畫
 public class CTextView extends ViewGroup {
     private Context context;
     public CTextView(Context context) {

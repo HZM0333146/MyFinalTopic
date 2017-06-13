@@ -1,8 +1,12 @@
+/*
+ * Taken from http://code.google.com/p/animated-gifs-in-android/
+ * Original source: http://code.google.com/p/animated-gifs-in-android/source/browse/trunk/AnimatedGifs/src/eu/andlabs/tutorial/animatedgifs/decoder/GifDecoder.java
+ *
+ */
 package com.example.dick.myfinaltopic;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
-
 import java.io.InputStream;
 import java.util.Vector;
 
@@ -658,6 +662,3 @@ public class GifDecoder
         } while ((blockSize > 0) && !err());
     }
 }
-
-
-

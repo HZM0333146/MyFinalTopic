@@ -1,19 +1,46 @@
 package com.example.dick.myfinaltopic;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import andtinder.model.CardModel;
 import andtinder.view.CardContainer;
 import andtinder.view.SimpleCardStackAdapter;
 
 public class SituationWordCard extends AppCompatActivity {
-    private CardContainer mCardContainer;
+
+   private CardContainer mCardContainer;
+    ImageView back;
+    TextView exerciseButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_situation_word_card);
+        exerciseButton=(TextView)findViewById(R.id.exercise);
+        exerciseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent();
+                intent.setClass(SituationWordCard.this,PracticeSelection.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        back=(ImageView) findViewById(R.id.situationwordcardback);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent();
+                intent.setClass(SituationWordCard.this,ContextTextAndEventSelection.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         mCardContainer=(CardContainer)findViewById(R.id.laa);
 
@@ -21,7 +48,7 @@ public class SituationWordCard extends AppCompatActivity {
 
         SimpleCardStackAdapter adapter = new SimpleCardStackAdapter(this);
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < TextBook.Cards.length; i++) {
             String uri = TextBook.Cards[i][14];
             int imageResource = getResources().getIdentifier(uri, "drawable", getPackageName());
             adapter.add(new CardModel(

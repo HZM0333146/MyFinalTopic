@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_structural_learning"
+    android:background="@drawable/blackboardbackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -9,5 +10,88 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.dick.myfinaltopic.StructuralLearning">
+    <ImageView
+        android:id="@+id/structurallearning"
+        android:background="@drawable/icon_goback"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/question"
+        android:text="題"
+        android:textAlignment="center"
+        android:textSize="150sp"
+        android:textColor="#FFB7DD"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="13dp"
+        android:layout_weight="1" />
 
+    <ImageView
+        android:id="@+id/iv_canvas"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="200dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/btn_resume"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="33dp"
+        android:id="@+id/explan"
+        android:textSize="30sp"
+        android:textColor="#FFB7DD"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Clear"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_resume"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textColor="#FFB7DD"
+        android:layout_below="@+id/iv_canvas"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Check"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_check"
+        android:textSize="24sp"
+        android:textColor="#FFB7DD"
+        android:textAlignment="center"
+        android:layout_below="@+id/iv_canvas"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textColor="#FFB7DD"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/explan"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btn_next"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="#FFB7DD" />
 </RelativeLayout>

@@ -39,7 +39,6 @@ public final class SimpleCardStackAdapter extends CardStackAdapter {
 			assert convertView != null;
 		}
 
-		((TextView) convertView.findViewById(R.id.title)).setText(model.getTitle());
 		((ImageView) convertView.findViewById(R.id.image)).setImageDrawable(model.getCardImageDrawable());
 		((TextView) convertView.findViewById(R.id.description)).setText(model.getDescription());
 		((TextView) convertView.findViewById(R.id.description2)).setText(model.getExample());
@@ -48,14 +47,11 @@ public final class SimpleCardStackAdapter extends CardStackAdapter {
 				pinyin = "PinYin";
 				translation = "Translation";
 				((TextView) convertView.findViewById(R.id.descriptionPE)).setText(model.getDescriptionE());
-				((TextView) convertView.findViewById(R.id.description2PE)).setText(model.getExampleE());
 
 
-		((TextView) convertView.findViewById(R.id.title)).setOnClickListener(new ClickTitle(model));
 		((TextView) convertView.findViewById(R.id.description)).setOnClickListener(new ClickDescription(model));
 		((TextView) convertView.findViewById(R.id.descriptionPE)).setOnClickListener(new ClickDescription(model));
 		((TextView) convertView.findViewById(R.id.description2)).setOnClickListener(new ClickExample(model));
-		((TextView) convertView.findViewById(R.id.description2PE)).setOnClickListener(new ClickExample(model));
 
 
 		return convertView;
@@ -123,7 +119,6 @@ public final class SimpleCardStackAdapter extends CardStackAdapter {
 		public void onClick(View v) {
 
 			((TextView) convertView.findViewById(R.id.descriptionPE)).setText(model.getDescriptionP());
-			((TextView) convertView.findViewById(R.id.description2PE)).setText(model.getExampleP());
 		}
 	}
 
@@ -144,8 +139,6 @@ public final class SimpleCardStackAdapter extends CardStackAdapter {
 					pinyin = "PinYin";
 					translation = "Translation";
 					((TextView) convertView.findViewById(R.id.descriptionPE)).setText(model.getDescriptionE());
-					((TextView) convertView.findViewById(R.id.description2PE)).setText(model.getExampleE());
-
 		}
 	}
 }
