@@ -224,8 +224,8 @@ public class StructuralLearning extends AppCompatActivity {
                     break;
                 case R.id.btn_next:
                     explan.setText(" ");
-                    btn_check.setImageResource(R.drawable.claer);
-                    btn_resume.setImageResource(R.drawable.claer);
+                    btn_check.setImageResource(R.drawable.checked);
+                    btn_resume.setImageResource(R.drawable.eraser);
                     btn_next.setText(" ");
                     if (baseBitmap != null) {  //清空
                         baseBitmap = Bitmap.createBitmap(iv_canvas.getWidth(), iv_canvas.getHeight(), Bitmap.Config.ARGB_8888);
