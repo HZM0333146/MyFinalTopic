@@ -72,7 +72,7 @@ public class SituationalLearning extends AppCompatActivity implements StreetView
             @Override
             public void onClick(View v) {
                 Intent i=new Intent();
-                i.setClass(SituationalLearning.this,ContextTextAndEventSelection.class);
+                i.setClass(SituationalLearning.this,ContextSelection.class);
                 startActivity(i);
                 finish();
             }

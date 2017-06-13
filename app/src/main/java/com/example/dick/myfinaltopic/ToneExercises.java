@@ -55,7 +55,7 @@ TextView word;
             @Override
             public void onClick(View v) {
                 Intent i=new Intent();
-                i.setClass(ToneExercises.this,PracticeSelection.class);
+                i.setClass(ToneExercises.this,HandTonePractice.class);
                 startActivity(i);
                 ToneExercises.this.finish();
             }

@@ -20,5 +20,35 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/strLearning"
+        android:text="TextView"
+        android:textColor="#99FF99"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp" />
+
+    <TextView
+        android:id="@+id/parLearning"
+        android:text="TextView"
+        android:textColor="#99FF99"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:id="@+id/tonExercises"
+        android:text="TextView"
+        android:textColor="#99FF99"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp" />
 
 </RelativeLayout>
