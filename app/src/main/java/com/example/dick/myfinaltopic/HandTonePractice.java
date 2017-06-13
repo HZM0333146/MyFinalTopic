@@ -113,7 +113,16 @@ public class HandTonePractice extends AppCompatActivity implements TextToSpeech.
         word = (TextView) findViewById(R.id.speak);
         word.setText(speak[0]);
         tts = new TextToSpeech(this, this);
-        tts.speak(speak[0], TextToSpeech.QUEUE_FLUSH, null);     //發音
+        //想暫停的時候
+        try {
+            Thread.sleep(2);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            tts.speak(speak[0], TextToSpeech.QUEUE_FLUSH, null);     //發音
+        }
+
+
         back = (ImageView) findViewById(R.id.handTonePracticeBack);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
