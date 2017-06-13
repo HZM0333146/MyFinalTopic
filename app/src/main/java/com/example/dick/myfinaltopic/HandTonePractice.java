@@ -6,15 +6,11 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.Vibrator;
-import android.speech.tts.TextToSpeech;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,21 +19,14 @@ import java.util.Locale;
 public class HandTonePractice extends AppCompatActivity implements TextToSpeech.OnInitListener {
     ImageView back;
     private SensorManager sensorManager;
-    private Vibrator vibrator;//手機的振動
-    private EditText txt_content;
-    private Button btn_delete, btn_cancle;
-    private AlertDialog dialog;
     private Sensor sensor;
     private boolean hasShaked = false;// 判斷是否已經搖晃的標志位
     int number = 5, i_number = 0;
     int answe_int[] = {1, 2, 4, 0, 4, 1, 4, 2, 3, 4, 4, 1, 3, 1, 4};
     String speak[] = {"區", "來", "或", "個", "這", "推", "進", "回", "指", "但", "變", "安", "保", "消", "愛"};
-    String DD;
+
     TextView word;
-    TextView xViewA = null;
-    TextView yViewA = null;
-    TextView zViewA = null;
-    TextView answer;
+
     private TextToSpeech tts;
 
     private SensorEventListener listener = new SensorEventListener() {
@@ -109,13 +98,13 @@ public class HandTonePractice extends AppCompatActivity implements TextToSpeech.
         setContentView(R.layout.activity_hand_tone_practice);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+
         word = (TextView) findViewById(R.id.speak);
         word.setText(speak[0]);
         tts = new TextToSpeech(this, this);
         //想暫停的時候
         try {
-            Thread.sleep(2);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
