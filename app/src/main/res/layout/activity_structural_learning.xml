@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_structural_learning"
     android:background="@drawable/blackboardbackground"
@@ -42,42 +43,6 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/btn_resume"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="33dp"
-        android:id="@+id/explan"
-        android:textSize="30sp"
-        android:textColor="#FFB7DD"
-        android:textAlignment="center" />
-
-    <TextView
-        android:text="Clear"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_resume"
-        android:textSize="24sp"
-        android:textAlignment="center"
-        android:textColor="#FFB7DD"
-        android:layout_below="@+id/iv_canvas"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:text="Check"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_check"
-        android:textSize="24sp"
-        android:textColor="#FFB7DD"
-        android:textAlignment="center"
-        android:layout_below="@+id/iv_canvas"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
         android:textColor="#FFB7DD"
@@ -85,13 +50,59 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/checked"
+        android:id="@+id/btn_check"
+        android:layout_below="@+id/iv_canvas"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="14dp"
+        android:layout_marginEnd="14dp" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/eraser"
+        android:id="@+id/btn_resume"
+        android:layout_below="@+id/iv_canvas"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp" />
+
+    <ImageView
+        app:srcCompat="@drawable/notebook_icon"
+        android:id="@+id/imageView10"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/btn_next"
+        android:layout_marginTop="10dp"
+        android:layout_alignRight="@+id/btn_check"
+        android:layout_alignEnd="@+id/btn_check"
+        android:layout_alignLeft="@+id/btn_resume"
+        android:layout_alignStart="@+id/btn_resume" />
+
     <TextView
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/explan"
-        android:layout_centerHorizontal="true"
         android:id="@+id/btn_next"
         android:textAlignment="center"
         android:textSize="24sp"
-        android:textColor="#FFB7DD" />
+        android:textColor="#FFB7DD"
+        android:layout_alignBottom="@+id/btn_resume"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/explan"
+        android:textSize="30sp"
+        android:textColor="#FFB7DD"
+        android:textAlignment="center"
+        android:layout_height="150dp"
+        android:layout_marginBottom="16dp"
+        android:layout_alignBottom="@+id/imageView10"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
