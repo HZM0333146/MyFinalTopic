@@ -17,15 +17,15 @@ import android.widget.Toast;
 
 public class StructuralLearning extends AppCompatActivity {
     // private Button  ;
-    private ImageView iv_canvas,back;
+    private ImageView iv_canvas,back,  btn_resume, btn_check;
     private Bitmap baseBitmap;
     private Canvas canvas;
     private Paint paint;
 
-    TextView question, textView, btn_resume, btn_check, explan, btn_next;
-    String str_answer[] = {"品字結構","上下結構","左右結構","內外組合","左包右結構","全包結構","左下包圍","左中右結構","上下結構","左中右結構"};
-    String str_question[] = {"森","苗","明","問","區","回","連","湖","岩","謝"};
-    String str_explan[] = {"木 : Wood","艹 : Grass\n田 : Field","日 : Sun\n月 : Moon","門 : Door\n口 : Mouth","","","","","",""};
+    TextView question, textView, explan, btn_next;
+    String str_answer[] = {"上下結構","上下結構","上下結構","左右結構","左右結構","全包結構","左右結構","左右結構","左右結構","左右結構"};
+    String str_question[] = {"買","客","置","物","櫃","回","時","終","點","站"};
+    String str_explan[] = {"買 : Buy\n罒 : Net\n貝 : Shells as money in ancient times","","","","","","","","",""};
     String text = " ";
 
     float startX,startY, downX,downY, stopX,stopY, upX,upY, maxY=0,maxX=0, minY=999,minX=999;  // 定義手指開始觸摸的坐標
@@ -45,9 +45,9 @@ public class StructuralLearning extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.textView);
         question = (TextView) findViewById(R.id.question);
         iv_canvas = (ImageView) findViewById(R.id.iv_canvas);
-        btn_check = (TextView) findViewById(R.id.btn_check);
+        btn_check = (ImageView) findViewById(R.id.btn_check);
         btn_check.setOnClickListener(click);
-        btn_resume = (TextView) findViewById(R.id.btn_resume);
+        btn_resume = (ImageView) findViewById(R.id.btn_resume);
         btn_resume.setOnClickListener(click);
         btn_next = (TextView) findViewById(R.id.btn_next);
         btn_next.setOnClickListener(click);
@@ -180,8 +180,8 @@ public class StructuralLearning extends AppCompatActivity {
                                 iv_canvas.setImageBitmap(baseBitmap);
                                 //Toast.makeText(MainActivity.this, "清除畫板成功，可以重新開始繪圖", 0).show();
                             }
-                            btn_check.setText(" ");
-                            btn_resume.setText(" ");
+                            btn_check.setImageResource(R.drawable.claer);
+                            btn_resume.setImageResource(R.drawable.claer);
                             btn_next.setText("Next");
                         }
                     })
@@ -220,8 +220,8 @@ public class StructuralLearning extends AppCompatActivity {
                     break;
                 case R.id.btn_next:
                     explan.setText(" ");
-                    btn_check.setText("Check");
-                    btn_resume.setText("Clear");
+                    btn_check.setImageResource(R.drawable.claer);
+                    btn_resume.setImageResource(R.drawable.claer);
                     btn_next.setText(" ");
                     if (baseBitmap != null) {  //清空
                         baseBitmap = Bitmap.createBitmap(iv_canvas.getWidth(), iv_canvas.getHeight(), Bitmap.Config.ARGB_8888);
