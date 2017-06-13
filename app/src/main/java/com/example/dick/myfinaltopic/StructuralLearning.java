@@ -23,9 +23,13 @@ public class StructuralLearning extends AppCompatActivity {
     private Paint paint;
 
     TextView question, textView, explan, btn_next;
-    String str_answer[] = {"上下結構","上下結構","上下結構","左右結構","左右結構","全包結構","左右結構","左右結構","左右結構","左右結構"};
-    String str_question[] = {"買","客","置","物","櫃","回","時","終","點","站"};
-    String str_explan[] = {"買 : Buy\n罒 : Net\n貝 : Shells as money in ancient times","","","","","","","","",""};
+    String str_answer[] = {"上下結構","上下結構","上下結構","左右結構","左包右結構","上下結構","全包結構","左右結構","左右結構","左右結構"};
+    String str_question[] = {"買","客","置","櫃","匱","貴","站","點","回","時","終"};
+    String str_explan[] = {"買 : Buy\n罒 : Net\n貝 : Shells as money in ancient times"
+            ,"客 : Guest / Customer\n宀 : Roof\n各 : Each"
+            ,"置 : Put / Set\\n罒 : Net\\n直 : Straight","櫃 : Cabinet\\n木 : Wood\\n匱 : Lack","匱 : Lack\\n匚 : box\\n貴 : expensive / valuable"
+            ,"貴 : expensive / valuable\\n臾 : moment\\n貝 : Shell、Shells as money in ancient times",
+            "站 : Stand / Station / Stop\\n立 : Stand\\n占 : Observe","點 : Point\\n黑 : Black\\n占 : Observe","回 : Return","時 : Time","終 : End"};
     String text = " ";
 
     float startX,startY, downX,downY, stopX,stopY, upX,upY, maxY=0,maxX=0, minY=999,minX=999;  // 定義手指開始觸摸的坐標
@@ -53,6 +57,7 @@ public class StructuralLearning extends AppCompatActivity {
         btn_next.setOnClickListener(click);
         iv_canvas.setOnTouchListener(touch);
         question.setText(str_question[i]);
+        explan.setText(str_explan[i]);
         explan = (TextView) findViewById(R.id.explan);
 
     }
@@ -163,7 +168,7 @@ public class StructuralLearning extends AppCompatActivity {
         }
 
         if(text.equals( str_answer[i])){showDialog("Correct");
-            explan.setText(str_explan[i]);}else showDialog("Wrong");
+           }else showDialog("Wrong");
     }
     private void showDialog(String ans) {
         if(ans.equals("Correct")){
